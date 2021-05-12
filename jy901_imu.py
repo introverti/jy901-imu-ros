@@ -35,7 +35,7 @@ def DueData(inputdata):
     global  Angle_quat
 
     for data in inputdata:  
-        data = ord(data)
+        #data = ord(data)
         if FrameState==0:   
             if data==0x55 and Bytenum==0: 
                 CheckSum=data
@@ -92,11 +92,11 @@ def DueData(inputdata):
                     a = [9.81*i for i in a]
                     a = tuple(a)
  
-                    print "acceleration(m/s2):\t%10.3f %10.3f %10.3f"%a
-                    print "angular vel(deg/s):\t%10.3f %10.3f %10.3f"%w
-                    print "angle(deg):\t\t%10.3f %10.3f %10.3f"%Angle
-                    print "angle_quat:\t\t%10.3f %10.3f %10.3f %10.3f"%Angle_quat
-                    print "====================================================================="
+                    print("acceleration(m/s2):\t%10.3f %10.3f %10.3f"%a)
+                    print("angular vel(deg/s):\t%10.3f %10.3f %10.3f"%w)
+                    print("angle(deg):\t\t%10.3f %10.3f %10.3f"%Angle)
+                    print("angle_quat:\t\t%10.3f %10.3f %10.3f %10.3f"%Angle_quat)
+                    print("=====================================================================")
                     
                     publisher()
 
