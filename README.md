@@ -35,7 +35,7 @@ It will print the measurements in terminal:
 ## Troubleshooting
 Error | Solution
 ------------ | -------------
-env: python\r: No such file or directory | https://stackoverflow.com/questions/19425857/env-python-r-no-such-file-or-directory
+env: python\r: No such file or directory | https://askubuntu.com/questions/942930/usr-bin-env-python-no-such-file-or-directory
 could not open port /dev/ttyUSB0 | 1.setup a file /etc/udev/rules.d/70-ttyusb.rules  2.add this KERNEL=="ttyUSB[0-9]*", MODE="0666"  3.unplug and plug usb   https://blog.yelvlab.cn/archives/285/
 
 ## Remarks
