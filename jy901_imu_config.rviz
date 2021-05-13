@@ -75,7 +75,7 @@ Visualization Manager:
       Class: rviz_imu_plugin/Imu
       Enabled: true
       Name: Imu
-      Topic: /raw_imu
+      Topic: /imu
       Unreliable: false
       Value: true
       fixed_frame_orientation: true
@@ -85,7 +85,7 @@ Visualization Manager:
       Enabled: false
       History Length: 1
       Name: Imu
-      Topic: /raw_imu
+      Topic: /imu
       Unreliable: false
       Value: false
   Enabled: true

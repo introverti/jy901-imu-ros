@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # encoding: utf-8
 
 import rospy
@@ -34,8 +34,8 @@ def DueData(inputdata):
     global  Angle
     global  Angle_quat
 
-    for data in inputdata:  
-        #data = ord(data)
+    for data in inputdata:
+        #print(data)
         if FrameState==0:   
             if data==0x55 and Bytenum==0: 
                 CheckSum=data
@@ -222,16 +222,17 @@ def euler_to_quaternion(roll, pitch, yaw):
 if __name__=='__main__': 
 
     rospy.init_node('jy901_imu', anonymous=True)
-    pub_raw_imu = rospy.Publisher("raw_imu", Imu, queue_size=1)
+    pub_raw_imu = rospy.Publisher("imu", Imu, queue_size=1)
     # use raw_input function for python 2.x or input function for python3.x
     # port = raw_input('please input port No. such as com7:');
     # #port = input('please input port No. such as com7:'));
     # baud = int(input('please input baudrate(115200 for JY61 or 9600 for JY901):'))
-    ser = serial.Serial(port='/dev/ttyUSB0', baudrate='9600', timeout=1)  # ser = serial.Serial('com7',115200, timeout=0.5) 
+    ser = serial.Serial(port='/dev/ttyUSB1', baudrate='9600', timeout=1)  # ser = serial.Serial('com7',115200, timeout=0.5) 
     print(ser.is_open)
 
     while not rospy.is_shutdown():
         datahex = ser.read(33)
+        #print(datahex)
         DueData(datahex) 
     
     print("Shutting down")
