@@ -34,8 +34,7 @@ def DueData(inputdata):
     global  Angle
     global  Angle_quat
 
-    for data in inputdata:
-        #print(data)
+    for data in inputdata:  
         if FrameState==0:   
             if data==0x55 and Bytenum==0: 
                 CheckSum=data
@@ -92,11 +91,11 @@ def DueData(inputdata):
                     a = [9.81*i for i in a]
                     a = tuple(a)
  
-                    print("acceleration(m/s2):\t%10.3f %10.3f %10.3f"%a)
-                    print("angular vel(deg/s):\t%10.3f %10.3f %10.3f"%w)
-                    print("angle(deg):\t\t%10.3f %10.3f %10.3f"%Angle)
-                    print("angle_quat:\t\t%10.3f %10.3f %10.3f %10.3f"%Angle_quat)
-                    print("=====================================================================")
+                    print ("acceleration(m/s2):\t%10.3f %10.3f %10.3f"%a)
+                    print ("angular vel(deg/s):\t%10.3f %10.3f %10.3f"%w)
+                    print ("angle(deg):\t\t%10.3f %10.3f %10.3f"%Angle)
+                    print ("angle_quat:\t\t%10.3f %10.3f %10.3f %10.3f"%Angle_quat)
+                    print ("=====================================================================")
                     
                     publisher()
 
@@ -114,7 +113,7 @@ def publisher():
     #publish imu
     imu_raw = Imu()
     imu_raw.header.stamp = rospy.Time.now()
-    imu_raw.header.frame_id = "world"
+    imu_raw.header.frame_id = "map"
     # imu_raw.header.seq = seq
 
     imu_raw.orientation.x = Angle_quat[0]
@@ -227,12 +226,12 @@ if __name__=='__main__':
     # port = raw_input('please input port No. such as com7:');
     # #port = input('please input port No. such as com7:'));
     # baud = int(input('please input baudrate(115200 for JY61 or 9600 for JY901):'))
-    ser = serial.Serial(port='/dev/ttyUSB1', baudrate='9600', timeout=1)  # ser = serial.Serial('com7',115200, timeout=0.5) 
+    ser = serial.Serial(port='/dev/ttyUSB1', baudrate='9600', timeout=1)  
+    # ser = serial.Serial('com7',115200, timeout=0.5) 
     print(ser.is_open)
 
     while not rospy.is_shutdown():
         datahex = ser.read(33)
-        #print(datahex)
         DueData(datahex) 
     
     print("Shutting down")
