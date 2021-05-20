@@ -16,7 +16,7 @@ In order to achieve the visualization, I used ros imu-tool (http://wiki.ros.org/
 
 To run this package:  
 
-```roslaunch jy901_python_imu jy901_imu.launch```
+```roslaunch jy901_imu jy901_imu.launch```
 
 The final result looks like this (yellow arrow for acceleration):  
 
@@ -25,7 +25,7 @@ The final result looks like this (yellow arrow for acceleration):
 Or if you don't need the visualizationa and just want to get the imu:  
 ```
 roscore  
-rosrun jy901_python_imu jy901_imu.py
+rosrun jy901_imu jy901_imu.py
 ```
 
 It will print the measurements in terminal:  
